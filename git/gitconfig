@@ -1,0 +1,27 @@
+[user]
+	name = Alwyn Kik
+	email = alwyn@firelay.com
+
+[alias]
+        co = checkout
+        br = branch
+        cm = commit
+        ci = commit
+        st = status
+        s = status
+        cl = clone
+        d = diff
+        ds = diff --staged
+        lg = log --graph --decorate --pretty=oneline --abbrev-commit
+        lga = log --all --graph --decorate --pretty=oneline --abbrev-commit
+        plr = pull --rebase
+        wb = "!bash -c 'git fetch origin && git branch --remotes --contains "$1"' - "
+        fa = fetch --all
+[color]
+        ui = true
+        diff = auto
+        status = auto
+
+[push]
+        default = simple
+

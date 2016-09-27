@@ -1,0 +1,13 @@
+set expandtab
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+
+syntax on
+
+autocmd FileType html setlocal shiftwidth=4
+autocmd FileType sh setlocal shiftwidth=4
+autocmd FileType py setlocal shiftwidth=4
+
+highlight Comment ctermfg=darkgray
+

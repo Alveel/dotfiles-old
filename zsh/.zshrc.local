@@ -1,0 +1,17 @@
+# Aliases
+salias bl='xbacklight -set'
+salias starts='systemctl start'
+salias stops='systemctl stop'
+salias restart='systemctl restart'
+alias status='systemctl status'
+salias jctl='journalctl -u'
+
+# Completions
+fpath=($fpath ~/.zsh/completions)
+
+# Path adjustments
+PATH=$PATH:~/.local/bin
+
+# Start ssh-agent
+eval $(keychain --eval id_rsa)
+
