@@ -163,14 +163,14 @@ bar {
 }
 
 # Audio controls
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 4dB+
-bindsym XF86AudioLowerVolume exec amixer -q set Master 4dB-
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+
+bindsym XF86AudioLowerVolume exec amixer -q set Master 5%-
 bindsym XF86AudioMute exec amixer -q set Master toggle
 #bindsym XF86XK_AudioMicMute
 
 # Backlight
-bindsym XF86MonBrightnessUp exec light -A 3
-bindsym XF86MonBrightnessDown exec light -U 3
+bindsym XF86MonBrightnessUp exec light -A 4
+bindsym XF86MonBrightnessDown exec light -U 4
 
 # Lock screen with $mod+L
 bindsym $mod+l exec i3lock -t -i /usr/local/share/img/lockscreen.png
