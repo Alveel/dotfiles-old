@@ -1,10 +1,11 @@
 # Environment
 TERMINAL=st
-TERM=xterm
+TERM=xterm-256color
 
 # Functions
 hdmi()  { xrandr --output HDMI-1 --auto --left-of eDP-1 }
 vga()   { xrandr --output DP-3 --auto --right-of eDP-1 }
+
 
 # Aliases
 salias bl='xbacklight -set'
@@ -13,7 +14,12 @@ salias stops='systemctl stop'
 salias restart='systemctl restart'
 alias status='systemctl status'
 salias jctl='journalctl -u'
-salias wifi='systemctl start wpa_supplicant@wlan0.service'
+salias wifi='systemctl restart wpa_supplicant@wlan0.service'
+salias vpn='systemctl restart openvpn-client@firelay.service'
+
+alias crtinfo='openssl x509 -text -noout -in'
+alias csrinfo='openssl req -text -noout -in'
+alias keyinfo='openssl rsa -noout -text -in'
 
 # Completions
 fpath=(~/.zsh/completions $fpath)
