@@ -180,8 +180,6 @@ bindsym $mod+l exec i3lock -t -i /usr/local/share/img/lockscreen.png
 # TODO: script this so it reads xrandr, checks connected devices and
 # sets the layout accordingly.
 exec --no-startup-id xrandr --output eDP-1 --auto --primary
-#exec --no-startup-id xrandr --output HDMI-1 --auto --left-of eDP-1
-#exec --no-startup-id xrandr --output DP-3 --auto --right-of eDP-1
 
 # Assign specific programs to certain workspaces.
 assign [class="(?i)vivaldi"] 4
@@ -195,7 +193,9 @@ workspace 3 output DP-3
 workspace 4 output eDP-1
 
 # Start default programs.
-exec vivaldi-stable
-#exec skypeforlinux
+exec vivaldi-snapshot
 exec thunderbird
+
+# Force floating of specific windows (use xprop to get class)
+for_window [class="Pinentry" instance="pinentry"] floating enable
 
