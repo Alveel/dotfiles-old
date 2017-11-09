@@ -1,3 +1,7 @@
+emulate sh
+source ~/.profile
+emulate zsh
+
 if [ -z "$DISPLAY" ] && [ "$(fgconsole)" -eq 1 ]; then
   exec startx
 fi
