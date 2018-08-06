@@ -5,6 +5,7 @@ SAVEHIST=1000000
 # Functions
 hdmi()  { xrandr --output HDMI-1 --auto --left-of eDP-1 }
 vga()   { xrandr --output DP-3 --auto --right-of eDP-1 }
+
 spaces_monitors() {
     xrandr --output eDP-1 --primary
     xrandr --output HDMI-1 --auto --left-of eDP-1
@@ -32,9 +33,8 @@ compinit
 fpath=(~/.zsh/completions $fpath)
 
 # Path adjustments
-export PATH=$PATH:~/.local/bin:~/.gem/ruby/2.3.0/bin:~/.go/bin
+export PATH=~/.local/bin:~/.go/bin:$PATH
 export GOPATH=~/.go
-#export JAVA_HOME=~/dev/liferay/work
 
 # Start ssh-agent
 eval $(keychain --eval id_rsa --noask)
