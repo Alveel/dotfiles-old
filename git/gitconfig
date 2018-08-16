@@ -28,3 +28,6 @@
 [push]
     default = simple
 
+[core]
+	autocrlf = input
+	whitespace = -blank-at-eof

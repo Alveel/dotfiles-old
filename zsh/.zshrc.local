@@ -34,6 +34,7 @@ fpath=(~/.zsh/completions $fpath)
 
 # Path adjustments
 export PATH=~/.local/bin:~/.go/bin:$PATH
+export NODE_PATH=~/node_modules
 export GOPATH=~/.go
 
 # Start ssh-agent
