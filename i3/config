@@ -191,7 +191,7 @@ exec --no-startup-id xrandr --output eDP-1 --auto --primary
 assign [class="Vivaldi-stable"] 4
 assign [class="Skype"] 2
 assign [class="Thunderbird"] 2
-assign [class="Slack"] 2
+assign [class="Slack"] 5
 
 # Move workspaces to proper monitors.
 workspace 1 output eDP-1
