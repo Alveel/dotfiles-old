@@ -31,3 +31,5 @@
 [core]
 	autocrlf = input
 	whitespace = -blank-at-eof
+[gc]
+	reflogExpire = 365
