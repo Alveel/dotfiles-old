@@ -1,11 +1,3 @@
-emulate sh
-source ~/.profile
-emulate zsh
-
-if [ -z "$DISPLAY" ] && [ "$(fgconsole)" -eq 1 ]; then
-  exec startx
-fi
-
 salias() {
   emulate -L zsh
   local only=0 ; local multi=0
@@ -42,4 +34,8 @@ salias() {
 
   return 0
 }
+
+emulate sh
+source ~/.profile
+emulate zsh
 

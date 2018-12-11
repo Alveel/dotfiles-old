@@ -21,7 +21,6 @@ alias restart='systemctl restart'
 alias status='systemctl status'
 alias jctl='journalctl -u'
 alias wifi='systemctl restart wpa_supplicant@wlan0.service'
-salias vpn='systemctl restart openvpn-client@firelay.service'
 
 alias crtinfo='openssl x509 -text -noout -in'
 alias csrinfo='openssl req -text -noout -in'
@@ -38,5 +37,10 @@ export NODE_PATH=~/node_modules
 export GOPATH=~/.go
 
 # Start ssh-agent
-eval $(keychain --eval id_rsa --noask)
+#eval $(keychain --eval id_rsa --noask)
+eval $(keychain --eval id_rsa id_ed25519 --agents ssh,gpg)
+
+# Load pyenv
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
