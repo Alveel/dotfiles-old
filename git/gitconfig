@@ -1,6 +1,7 @@
 [user]
 	name = Alwyn Kik
 	email = alwyn@firelay.com
+	signingkey = alwyn@firelay.com
 
 [alias]
     co = checkout
@@ -33,3 +34,5 @@
 	whitespace = -blank-at-eof
 [gc]
 	reflogExpire = 365
+[gpg]
+	program = gpg
