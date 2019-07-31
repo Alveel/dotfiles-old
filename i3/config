@@ -43,6 +43,7 @@ bindsym $mod+Shift+q kill
 #bindsym $mod+d exec dmenu_run
 # start passmenu (menu for pass/passwordstore)
 bindsym $mod+p exec passmenu
+bindsym $mod+o exec otpmenu
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -125,9 +126,10 @@ mode "resize" {
     # Pressing right will grow the window’s width.
     # Pressing up will shrink the window’s height.
     # Pressing down will grow the window’s height.
-    bindsym j resize shrink width 10 px or 10 ppt
+    bindsym h resize shrink width 10 px or 10 ppt
+    bindsym j resize shrink height 10 px or 10 ppt
     bindsym k resize grow height 10 px or 10 ppt
-    bindsym l resize shrink height 10 px or 10 ppt
+    bindsym l resize grow width 10 px or 10 ppt
     bindsym semicolon resize grow width 10 px or 10 ppt
 
     # same bindings, but for the arrow keys
@@ -142,6 +144,24 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+
+# move window with arrow keys (if the title bar is unreachable or don't want to use mouse)
+mode "moveit" {
+    bindsym h move left 20px
+    bindsym j move up 20px
+    bindsym k move down 20px
+    bindsym l move right 20px
+
+    bindsym Up move up 20px
+    bindsym Left move left 20px
+    bindsym Down move down 20px
+    bindsym Right move right 20px
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+m mode "moveit"
 
 # Offer option menu to lock, logout, suspend, hibernate, reboot or shutdown the computer.
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot), (Shift+s) shutdown
@@ -180,7 +200,7 @@ bindsym XF86MonBrightnessUp exec light -A 4
 bindsym XF86MonBrightnessDown exec light -U 4
 
 # Lock screen with $mod+L
-bindsym $mod+l exec i3lock -t -i /usr/local/share/img/lockscreen.png
+bindsym $mod+l exec i3lock-fancy-rapid 7 4
 
 # Position HDMI and VGA external monitors.
 # TODO: script this so it reads xrandr, checks connected devices and
@@ -208,4 +228,8 @@ exec blueman-applet
 # Force floating of specific windows (use xprop to get class)
 # 
 for_window [class="Pinentry" instance="pinentry"] floating enable
+
+# Force tiling...
+#
+for_window [class="java-lang-Thread" instance="sun-awt-X11-XFramePeer"] floating disable # IPMI icedtea thing
 
