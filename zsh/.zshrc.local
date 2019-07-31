@@ -12,6 +12,10 @@ spaces_monitors() {
     xrandr --output DP-3 --auto --right-of eDP-1
 }
 
+secure_directory() {
+    find "${1:-.}" -exec chmod -c go-rwx {} +
+}
+
 
 # Aliases
 salias bl='xbacklight -set'
@@ -43,4 +47,7 @@ eval $(keychain --eval id_rsa id_ed25519 --agents ssh,gpg)
 # Load pyenv
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+
+# Hook direnv
+eval "$(direnv hook zsh)"
 

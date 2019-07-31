@@ -2,4 +2,9 @@
 .zcompcache/
 .zcompdump.zwc
 .zhistory
+completions
 mpv/watch_later
+vim/autoload
+vim/plugged
+vim/swap
+
