@@ -26,7 +26,6 @@ Plug 'jamessan/vim-gnupg'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'junegunn/vim-easy-align'
 Plug 'davidhalter/jedi-vim'
-"Plug 'python-mode/python-mode', { 'for': 'python' }
 
 " Initialize plugin system
 call plug#end()
