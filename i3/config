@@ -183,6 +183,20 @@ mode "$mode_system" {
 
 bindsym $mod+XF86Search mode "$mode_system"
 
+# Layout switcher
+set $mode_layout Layout (s) Spaces, (h) Home
+
+mode "$mode_layout" {
+    bindsym s workspace 1; move workspace to output eDP-1; workspace 2; move workspace to output HDMI-1; workspace 3; move output to DP-3; workspace 4; move output to eDP-1; workspace 5; move output to HDMI-1; workspace 6; move output to eDP-1; mode "default"
+    bindsym h workspace 1; move output to eDP-1; workspace 2; move output to DP-3; workspace 3; move output to DP-3; workspace 4; move output to HDMI-1; workspace 5; move output to DP-3; workspace 6; move output to HDMI-1; mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+Shift+l mode "$mode_layout"
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
@@ -202,6 +216,10 @@ bindsym XF86MonBrightnessDown exec light -U 4
 # Lock screen with $mod+L
 bindsym $mod+l exec i3lock-fancy-rapid 7 4
 
+# Printscreen buttons
+bindsym Print exec scrot --focused --exec 'mv $f ~/img/scrot/'
+bindsym Control+Shift+Print exec scrot --select --exec 'mv $f ~/img/scrot/'
+
 # Position HDMI and VGA external monitors.
 # TODO: script this so it reads xrandr, checks connected devices and
 # sets the layout accordingly.
@@ -209,16 +227,10 @@ exec --no-startup-id xrandr --output eDP-1 --auto --primary
 
 # Assign specific programs to certain workspaces.
 assign [class="Vivaldi-stable"] 4
-assign [class="Skype"] 2
+assign [class="Skype"] 5
 assign [class="Thunderbird"] 2
 assign [class="Slack"] 5
-
-# Move workspaces to proper monitors.
-workspace 1 output eDP-1
-workspace 2 output HDMI-1
-workspace 3 output DP-3
-workspace 4 output eDP-1
-workspace 5 output HDMI-1
+assign [class="TeamViewer"] 6
 
 # Start default programs.
 #exec vivaldi-stable
@@ -232,4 +244,9 @@ for_window [class="Pinentry" instance="pinentry"] floating enable
 # Force tiling...
 #
 for_window [class="java-lang-Thread" instance="sun-awt-X11-XFramePeer"] floating disable # IPMI icedtea thing
+
+# Sticky/clone Firefox picture-in-picture to every workspace.
+# https://i3wm.org/docs/userguide.html#_sticky_floating_windows
+#
+for_window [window_role="PictureInPicture"] sticky enable
 
